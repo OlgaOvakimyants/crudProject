@@ -2,6 +2,7 @@ package servlet;
 
 import dao.UserDAO;
 import model.User;
+import service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,9 +17,9 @@ public class DeleteServlet extends HttpServlet {
         req.getRequestDispatcher("deleteUser.jsp").forward(req, resp);
     }
     public void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDAO dao = new UserDAO();
+        UserService userService = UserService.getInstance();
         int userID = Integer.parseInt(req.getParameter("userID"));
-        dao.deleteUser(userID);
+        userService.deleteUser(userID);
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }

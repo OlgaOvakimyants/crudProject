@@ -1,7 +1,9 @@
 package servlet;
 
 import dao.UserDAO;
+import dao.UserHibernateDAO;
 import model.User;
+import service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,12 +18,12 @@ public class AddServlet extends HttpServlet {
         req.getRequestDispatcher("user.jsp").forward(req, resp);
     }
     public void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDAO dao = new UserDAO();
+        UserService userService = UserService.getInstance();
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
         String email = req.getParameter("email");
 
-        dao.addUser(new User(firstName, lastName, email));
+        userService.addUser(new User(firstName, lastName, email));
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }
