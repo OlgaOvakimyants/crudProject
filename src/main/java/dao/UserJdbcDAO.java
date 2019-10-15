@@ -29,8 +29,9 @@ public class UserJdbcDAO implements UserDAO {
         }
     }
 
-    public void deleteUser(int userId) {
+    public void deleteUser(User user) {
         try {
+            int userId = user.getUserID();
             PreparedStatement preparedStatement = connection
                     .prepareStatement("delete from users where userID=?");
             // Parameters start with 1

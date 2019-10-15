@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/add")
 public class AddServlet extends HttpServlet {
@@ -24,6 +25,9 @@ public class AddServlet extends HttpServlet {
         String email = req.getParameter("email");
 
         userService.addUser(new User(firstName, lastName, email));
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        List<User> users = userService.getAllUsers();
+        req.setAttribute("users", users);
+        req.getRequestDispatcher("listUser.jsp").forward(req, resp);
+
     }
 }

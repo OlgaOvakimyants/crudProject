@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/delete")
 public class DeleteServlet extends HttpServlet {
@@ -20,6 +21,9 @@ public class DeleteServlet extends HttpServlet {
         UserService userService = UserService.getInstance();
         int userID = Integer.parseInt(req.getParameter("userID"));
         userService.deleteUser(userID);
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        List<User> users = userService.getAllUsers();
+        req.setAttribute("users", users);
+        req.getRequestDispatcher("listUser.jsp").forward(req, resp);
+
     }
 }

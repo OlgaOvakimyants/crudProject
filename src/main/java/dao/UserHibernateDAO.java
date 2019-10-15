@@ -1,7 +1,6 @@
 package dao;
 
 import model.User;
-import model.Users;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import java.util.List;
@@ -14,19 +13,19 @@ public class UserHibernateDAO implements UserDAO {
     }
 
     public void addUser(User user) throws HibernateException {
-        session.save(new Users(user.getFirstName(), user.getLastName(), user.getEmail()));
+        session.save(new User(user.getFirstName(), user.getLastName(), user.getEmail()));
     }
 
-    public void deleteUser(int userId) throws HibernateException {
-        session.delete(userId);
+    public void deleteUser(User user) throws HibernateException {
+        session.delete(user);
     }
 
     public void updateUser(User user) throws HibernateException {
-        session.update(new Users(user.getFirstName(), user.getLastName(), user.getEmail()));
+        session.update(new User(user.getUserID(), user.getFirstName(), user.getLastName(), user.getEmail()));
     }
 
     public List<User> getAllUsers() throws HibernateException {
-        List<User> users = (List<User>) session.getSessionFactory().openSession().createQuery("FROM users").list();
+        List<User> users = (List<User>) session.getSessionFactory().openSession().createQuery("FROM User").list();
         return users;
     }
 
