@@ -35,8 +35,9 @@
             <td><c:out value="${user.firstName}" /></td>
             <td><c:out value="${user.lastName}" /></td>
             <td><c:out value="${user.email}" /></td>
-            <td><a href="update=<c:out value="${user.userID}"/>">Update</a></td>
-            <td><a href="delete=<c:out value="${user.userID}"/>">Delete</a></td>
+            <td><a href="update?userID=<c:out value="${user.userID}"/>">Update</a></td>
+            <td><a href="delete?userID=<c:out value="${user.userID}"/>">Delete</a></td>
+
         </tr>
     </c:forEach>
     </tbody>

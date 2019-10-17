@@ -13,7 +13,7 @@ public class UserHibernateDAO implements UserDAO {
     }
 
     public void addUser(User user) throws HibernateException {
-        session.save(new User(user.getFirstName(), user.getLastName(), user.getEmail()));
+        session.save(user);
     }
 
     public void deleteUser(User user) throws HibernateException {
@@ -21,7 +21,7 @@ public class UserHibernateDAO implements UserDAO {
     }
 
     public void updateUser(User user) throws HibernateException {
-        session.update(new User(user.getUserID(), user.getFirstName(), user.getLastName(), user.getEmail()));
+        session.update(user);
     }
 
     public List<User> getAllUsers() throws HibernateException {

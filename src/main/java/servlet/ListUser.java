@@ -20,18 +20,4 @@ public class ListUser extends HttpServlet {
         req.setAttribute("users", users);
         req.getRequestDispatcher("listUser.jsp").forward(req, resp);
     }
-    public void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String url = req.getRequestURL().toString();
-
-       /* if ()
-
-        List<User> users = userService.getAllUsers();
-        int userID = Integer.parseInt(req.getParameter("update"));
-        String firstName = req.getParameter("firstName");
-        String lastName = req.getParameter("lastName");
-        String email = req.getParameter("email");
-
-        userService.updateUser(new User(userID,firstName, lastName, email));
-        //req.getRequestDispatcher("index.jsp").forward(req, resp);*/
-    }
 }

@@ -25,9 +25,7 @@ public class AddServlet extends HttpServlet {
         String email = req.getParameter("email");
 
         userService.addUser(new User(firstName, lastName, email));
-        List<User> users = userService.getAllUsers();
-        req.setAttribute("users", users);
-        req.getRequestDispatcher("listUser.jsp").forward(req, resp);
+        resp.sendRedirect("/list");
 
     }
 }

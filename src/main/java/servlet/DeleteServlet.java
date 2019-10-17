@@ -15,15 +15,10 @@ import java.util.List;
 @WebServlet("/delete")
 public class DeleteServlet extends HttpServlet {
     public void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("deleteUser.jsp").forward(req, resp);
+            int userID = Integer.parseInt(req.getParameter("userID"));
+            UserService userService = UserService.getInstance();
+            userService.deleteUser(userID);
+            resp.sendRedirect("/list");
     }
-    public void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserService userService = UserService.getInstance();
-        int userID = Integer.parseInt(req.getParameter("userID"));
-        userService.deleteUser(userID);
-        List<User> users = userService.getAllUsers();
-        req.setAttribute("users", users);
-        req.getRequestDispatcher("listUser.jsp").forward(req, resp);
 
-    }
 }

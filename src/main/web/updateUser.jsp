@@ -7,9 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <form method="post">
-    <label>userID:
-        <input type="number" name ="userID"><br />
-    </label>
 
     <label>FirstName:
         <input type="text" name="firstName"><br />
