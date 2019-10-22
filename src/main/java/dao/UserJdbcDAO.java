@@ -1,6 +1,7 @@
 package dao;
 
 import model.User;
+import utilDB.DBHelper;
 import utilDB.UtilDB;
 
 import java.sql.*;
@@ -11,7 +12,7 @@ public class UserJdbcDAO implements UserDAO {
     private Connection connection;
 
     public UserJdbcDAO () {
-        connection = UtilDB.getConnection();
+        connection = DBHelper.getConnection();
     }
 
     public void addUser(User user) {
