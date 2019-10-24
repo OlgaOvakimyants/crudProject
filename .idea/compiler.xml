@@ -9,5 +9,8 @@
         <module name="crudProject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="crudProject" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

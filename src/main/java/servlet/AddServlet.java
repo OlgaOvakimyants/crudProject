@@ -29,10 +29,7 @@ public class AddServlet extends HttpServlet {
         String lastName = req.getParameter("lastName");
         String email = req.getParameter("email");
 
-        UserDAOFactory daoFactory = new UserDAOFactory();
-        daoFactory.createDAO().addUser(new User(firstName, lastName, email));
-
-    //    userService.addUser(new User(firstName, lastName, email));
+        userService.addUser(new User(firstName, lastName, email));
         resp.sendRedirect("/list");
 
     }
