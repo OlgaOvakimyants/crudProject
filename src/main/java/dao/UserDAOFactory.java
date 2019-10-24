@@ -4,18 +4,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import service.UserService;
 import utilDB.DBHelper;
-import utilDB.UtilHibernateDB;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.Properties;
 
 public class UserDAOFactory {
 
-    public UserDAO createDAO() throws IOException {
+
+    public static UserDAO createDAO() throws IOException {
         Properties properties = new Properties();
         properties.load(new FileInputStream("C:\\Users\\User\\IdeaProjects\\crudProject\\src\\main\\resources\\typeDAO"));
         UserDAO toReturn = null;

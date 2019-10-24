@@ -15,11 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 public class UserServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       // UserService userService = UserService.getInstance();
-       /* UserService userService = new UserService();
-        List<User> users = userService.getAllUsers();
-        req.setAttribute("users", users);
-        req.getRequestDispatcher("listUser.jsp").forward(req, resp);*/
         resp.sendRedirect("/list");
     }
 

@@ -2,7 +2,6 @@ package dao;
 
 import model.User;
 import utilDB.DBHelper;
-import utilDB.UtilDB;
 
 import java.sql.*;
 import java.util.ArrayList;
