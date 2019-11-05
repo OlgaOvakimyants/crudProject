@@ -5,6 +5,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import org.hibernate.criterion.Expression;
 import java.util.List;
 
 public class UserHibernateDAO implements UserDAO {
@@ -45,5 +46,20 @@ public class UserHibernateDAO implements UserDAO {
 
     public User getUserById(int userId) {
         return session.get(User.class, userId);
+    }
+
+    @Override
+    public User getUserByLoginPassword(String login, String password) {
+        User user = null;
+        List <User> users = session.createCriteria(User.class)
+                .add(Expression.like("login", login))
+                .add(Expression.like("password", password))
+                .list();
+        if (users.size() != 0) {
+            user = users.get(0);
+        }
+
+        return user;
+                //session.get(User.class, login);
     }
 }

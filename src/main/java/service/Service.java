@@ -17,4 +17,8 @@ public interface Service {
 
     User getUserById(int userId) throws IOException;
 
+    User getUserByLogin(String login, String password) throws IOException;
+
+
+
 }

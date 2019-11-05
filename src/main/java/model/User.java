@@ -6,36 +6,78 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-        @Id
-        @Column(name = "userID" )
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int userID;
+    @Id
+    @Column(name = "userID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int userID;
 
-        @Column(name = "firstName")
-        private String firstName;
+    @Column(name = "firstName")
+    private String firstName;
 
-        @Column(name = "lastName")
-        private String lastName;
+    @Column(name = "lastName")
+    private String lastName;
 
-        @Column(name = "email")
-        private String email;
+    @Column(name = "email")
+    private String email;
 
+   @Column(name = "role")
+    private String role;
 
-    public User(String firstName, String lastName, String email) {
+    @Column(name = "login", unique = true)
+    private String login;
 
+    @Column(name = "password")
+    private String password;
+
+    public User(String role) {
+        this.role = role;
+    }
+
+    public User(String firstName, String lastName, String email, String role, String login, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.role = role;
+        this.login = login;
+        this.password = password;
+
     }
 
     public User() {
     }
 
-    public User(int userID, String firstName, String lastName, String email) {
+    public User(int userID, String firstName, String lastName, String email, String role, String login, String password) {
         this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.role = role;
+        this.login = login;
+        this.password = password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public int getUserID() {
